@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>
+			TrackCalls - Make API calls to alphavantage cryptocurrency endpoints
+		</title>
+		<link rel="stylesheet" href="./style.css" />
+	</head>
+	<body>
+		<header>
+			<h2>Build your api call</h2>
+			<p>
+				Hello, TrackCalls candidate! Please showcase your development experience
+				integrating with an existing API.
+			</p>
+		</header>
+		<main>
+			<section class="form-area">
+				<form>
+					<div>
+						<label for="function"></label>
+						<select class="form-control" id="function">
+							<option value="CURRENCY_EXCHANGE_RATE">
+								CURRENCY_EXCHANGE_RATE
+							</option>
+						</select>
+					</div>
+					<div>
+						<label for="fm-currency"></label>
+						<select class="form-control" id="fm-currency">
+							<option value="BTC">BTC</option>
+						</select>
+					</div>
+					<div>
+						<label for="to-currency"></label>
+						<select class="form-control" id="to-currency">
+							<option value="USD">USD</option>
+						</select>
+					</div>
+					<div>
+						<input type="submit" class="btn" id="send-btn" value="Send" />
+					</div>
+				</form>
+			</section>
+			<section class="output">
+				<code> hello </code>
+			</section>
+		</main>
+		<footer><p>&copy; 2022</p></footer>
+		<script type="module" src="./app.js"></script>
+	</body>
+</html>

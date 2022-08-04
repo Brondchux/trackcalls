@@ -1,0 +1,5 @@
+# To not expose our key to the public, we will simulate a .env file and in this case demoKey.js
+demoKey.js
+
+# For developement server configuration, useless in production
+.vscode
