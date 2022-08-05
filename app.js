@@ -73,7 +73,11 @@ const sendRequest = async (e) => {
 	// manual query
 	if (functionsValue === constants.OTHERS) {
 		const othersEl = document.querySelector("#others");
+		const alertEl = document.querySelector(".alert");
 		const othersInput = othersEl.value;
+		if (!othersInput.lengtn) {
+			return (alertEl.textContent = "Query string is required!");
+		}
 		queryString += othersInput;
 	}
 	// dynamic query
