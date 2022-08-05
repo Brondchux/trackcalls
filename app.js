@@ -3,7 +3,7 @@ import constants from "./utils/constants.js";
 import {
 	displayCurrentYear,
 	displayResponse,
-	urlBuilder,
+	makeApiCall,
 } from "./utils/helpers.js";
 
 const functionsEl = document.querySelector("#functions");
@@ -87,7 +87,7 @@ const sendRequest = async (e) => {
 			queryString += `&${field.param}=${fieldInput}`;
 		});
 	}
-	const res = await urlBuilder(queryString);
+	const res = await makeApiCall(queryString);
 	return displayResponse(res);
 };
 

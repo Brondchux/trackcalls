@@ -18,7 +18,7 @@ export const displayResponse = async (result) => {
 	codeEl.append(preEl);
 };
 
-export const apiCall = async (url) => {
+export const apiRequest = async (url) => {
 	return await fetch(url, {
 		method: "GET",
 	})
@@ -27,9 +27,9 @@ export const apiCall = async (url) => {
 		.catch((e) => new Error("Ding! You got an error: ", e));
 };
 
-export const urlBuilder = async (queryString) => {
+export const makeApiCall = async (queryString) => {
 	const url = `${constants.BASEURL}/query?${queryString}&apikey=${demoKey}`;
 	const maskedUrl = url.replace(demoKey, constants.DEMO_KEY_MASK);
-	const response = await apiCall(url);
+	const response = await apiRequest(url);
 	return { url: maskedUrl, response };
 };
