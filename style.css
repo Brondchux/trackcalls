@@ -107,7 +107,7 @@ code {
 }
 footer {
 	min-height: 5vh;
-	font-size: 0.9rem;
+	font-size: 1rem;
 	text-align: center;
 	background-color: var(--dark-black);
 	color: var(--bright-white);
