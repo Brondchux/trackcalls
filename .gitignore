@@ -1,8 +1,5 @@
-# To not expose our key to the public, we will simulate a .env file and in this case demoKey.js
-demoKey.js
+# To not expose our key to the public in production, we will use a .env file and ignore it here
+.env
 
 # For developement server configuration, useless in production
 .vscode
-
-# Misc
-app2.js

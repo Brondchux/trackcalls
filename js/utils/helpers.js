@@ -1,6 +1,5 @@
 import constants from "./constants.js";
-import demoApiKey from "../demoKey.js";
-const demoKey = demoApiKey || process.env.DEMO_API_KEY;
+import demoKey from "../demoKey.js";
 
 export const displayCurrentYear = () => {
 	const currentYearEl = document.querySelector("#currentYear");
