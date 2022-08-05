@@ -66,6 +66,7 @@ const dynamicFields = () => {
 		const selectEl = document.createElement("select");
 
 		labelEl.setAttribute("for", field.param);
+		labelEl.textContent = `Select ${field.param} type:`;
 		selectEl.setAttribute("class", "form-control");
 		selectEl.setAttribute("id", field.param);
 
@@ -86,9 +87,17 @@ const dynamicFields = () => {
 const sendRequest = async (e) => {
 	e.preventDefault();
 	const fxnTypeInput = fxnTypeEl.value;
-	const fmCurrencyInput = fmCurrencyEl.value;
-	const toCurrencyInput = toCurrencyEl.value;
-	const queryString = `function=${fxnTypeInput}&from_currency=${fmCurrencyInput}&to_currency=${toCurrencyInput}`;
+	const { required } = functions[fxnTypeInput];
+	if (!required && !required.lengtn) return;
+	let queryString = `function=${fxnTypeInput}`;
+
+	// extract values with loop
+	required.forEach((field) => {
+		const fieldInput = document.querySelector(`#${field.param}`).value;
+		queryString += `&${field.param}=${fieldInput}`;
+	});
+
+	console.log(queryString);
 	const res = await urlBuilder(queryString);
 	return displayResponse(res);
 };
