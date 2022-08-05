@@ -10,6 +10,8 @@ const functionsEl = document.querySelector("#functions");
 const dynamicEl = document.querySelector("#dynamic");
 const manualEl = document.querySelector("#manual");
 const sendBtn = document.querySelector("#send-btn");
+const urlEl = document.querySelector(".url");
+const codeEl = document.querySelector("code");
 
 // on load, auto extract all functions into options;
 (() => {
@@ -25,8 +27,13 @@ const sendBtn = document.querySelector("#send-btn");
 })();
 
 const generateFields = () => {
+	// reset contents
 	dynamicEl.innerHTML = "";
 	manualEl.classList.add("hide");
+	urlEl.classList.add("hide");
+	codeEl.innerHTML = "";
+
+	// get selected function
 	const functionsValue = functionsEl.value;
 	if (functionsValue === constants.SELECT)
 		return sendBtn.parentElement.classList.add("hide");

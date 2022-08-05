@@ -8,13 +8,16 @@ export const displayCurrentYear = () => {
 };
 
 export const displayResponse = async (result) => {
+	const urlEl = document.querySelector(".url");
 	const codeEl = document.querySelector("code");
+	urlEl.classList.remove("hide");
+	urlEl.innerHTML = "";
 	codeEl.innerHTML = "";
 	const preEl = document.createElement("pre");
 	const pEl = document.createElement("p");
-	pEl.textContent = `URL: ${result.url}`;
+	pEl.textContent = `${result.url}`;
 	preEl.textContent = `${JSON.stringify(result.response, null, 3)}`;
-	codeEl.append(pEl);
+	urlEl.append(pEl);
 	codeEl.append(preEl);
 };
 
