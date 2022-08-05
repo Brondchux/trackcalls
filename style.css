@@ -23,7 +23,7 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 2.7rem;
+	font-size: 2.2rem;
 }
 span {
 	color: var(--light-green) !important;
@@ -44,9 +44,10 @@ a:hover {
 	display: flex;
 	align-items: center;
 	padding: 1rem;
+	border-radius: 0 0 10px 10px;
 }
 .banner h2 {
-	font-size: 2.5rem;
+	font-size: 2rem;
 }
 .banner p {
 	font-size: 1.5rem;
