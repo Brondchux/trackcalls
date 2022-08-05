@@ -13,7 +13,7 @@
 		<header>
 			<h2>Build your api call</h2>
 			<p>
-				Hello, TrackCalls candidate! Please showcase your development experience
+				Hello, TrackVia candidate! Please showcase your development experience
 				integrating with an existing API.
 			</p>
 		</header>
@@ -24,20 +24,6 @@
 						<label for="functions">Select function type:</label>
 						<select class="form-control" id="functions">
 							<option value="select" selected>-select-</option>
-							<option value="CURRENCY_EXCHANGE_RATE">
-								CURRENCY_EXCHANGE_RATE
-							</option>
-							<option value="CRYPTO_INTRADAY">CRYPTO_INTRADAY</option>
-							<option value="DIGITAL_CURRENCY_DAILY">
-								DIGITAL_CURRENCY_DAILY
-							</option>
-							<option value="DIGITAL_CURRENCY_WEEKLY">
-								DIGITAL_CURRENCY_WEEKLY
-							</option>
-							<option value="DIGITAL_CURRENCY_MONTHLY">
-								DIGITAL_CURRENCY_MONTHLY
-							</option>
-							<option value="OTHERS">OTHERS</option>
 						</select>
 					</div>
 					<div id="manual" class="hide">
@@ -50,16 +36,21 @@
 						/>
 					</div>
 					<div id="dynamic"></div>
-					<div class="hideX">
+					<div class="hide">
 						<input type="submit" class="btn" id="send-btn" value="Send" />
 					</div>
 				</form>
 			</section>
 			<section class="output">
-				<code> hello </code>
+				<code></code>
 			</section>
 		</main>
-		<footer><p>&copy; 2022</p></footer>
+		<footer>
+			<p>
+				&copy; <span id="currentYear"></span> TrackCalls - Gospel Chukwu -
+				alphavantage
+			</p>
+		</footer>
 		<script type="module" src="./app.js"></script>
 	</body>
 </html>

@@ -1,13 +1,27 @@
 import demoKey from "./demoKey.js";
 import functions from "./utils/functions.js";
 import constants from "./utils/constants.js";
+import { displayCurrentYear } from "./utils/helpers.js";
 
 const functionsEl = document.querySelector("#functions");
 const codeEl = document.querySelector("code");
 const dynamicEl = document.querySelector("#dynamic");
 const sendBtn = document.querySelector("#send-btn");
 
-const dynamicFields = () => {
+// auto extract all functions into options;
+(() => {
+	if (!functions || !functionsEl) return;
+
+	for (let fxn in functions) {
+		fxn = fxn.toUpperCase();
+		const option = document.createElement("option");
+		option.setAttribute("value", fxn);
+		option.innerText = fxn;
+		functionsEl.append(option);
+	}
+})();
+
+const generateFields = () => {
 	const functionsValue = functionsEl.value;
 	if (functionsValue === constants.SELECT) return;
 	// display button
@@ -71,16 +85,15 @@ const sendRequest = async (e) => {
 			queryString += `&${field.param}=${fieldInput}`;
 		});
 	}
-
-	console.log(queryString);
 	const res = await urlBuilder(queryString);
 	return displayResponse(res);
 };
 
 const urlBuilder = async (queryString) => {
 	const url = `${constants.BASEURL}/query?${queryString}&apikey=${demoKey}`;
-	console.log(url);
-	return await apiCall(url);
+	const maskedUrl = url.replace(demoKey, constants.DEMO_KEY_MASK);
+	const response = await apiCall(url);
+	return { url: maskedUrl, response };
 };
 
 const apiCall = async (url) => {
@@ -92,12 +105,16 @@ const apiCall = async (url) => {
 		.catch((e) => new Error("You got this error: ", e));
 };
 
-const displayResponse = async (response) => {
+const displayResponse = async (result) => {
 	codeEl.innerHTML = "";
 	const preEl = document.createElement("pre");
-	preEl.textContent = `${JSON.stringify(response, null, 3)}`;
+	const pEl = document.createElement("p");
+	pEl.textContent = `URL: ${result.url}`;
+	preEl.textContent = `${JSON.stringify(result.response, null, 3)}`;
+	codeEl.append(pEl);
 	codeEl.append(preEl);
 };
 
 sendBtn.addEventListener("click", sendRequest);
-functionsEl.addEventListener("change", dynamicFields);
+functionsEl.addEventListener("change", generateFields);
+displayCurrentYear();
