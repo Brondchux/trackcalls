@@ -1,22 +1,19 @@
 # TrackCalls
 
-# Project Description
-
 Build and make your API calls to alphavantage cryptocurrency endpoints using our pre-selected routes or write your own custom endpoints.
 
 ---
 
 ## Table of Content
 
-1. [Project Description](https://github.com/Brondchux/trackcalls#project-description)
-2. [User Story](https://github.com/Brondchux/trackcalls#user-story)
-3. [Acceptance Criteria](https://github.com/Brondchux/trackcalls#acceptance-criteria)
-4. [Tech Stack](https://github.com/Brondchux/trackcalls#tech-stack)
-5. [Post MVP Enhancements](https://github.com/Brondchux/trackcalls#post-mvp-enhancements)
-6. [Useful Links](https://github.com/Brondchux/trackcalls#useful-links)
-7. [Collaborators](https://github.com/Brondchux/trackcalls#collaborators)
-8. [Credits](https://github.com/Brondchux/trackcalls#credits)
-9. [License](https://github.com/Brondchux/trackcalls#license)
+1. [User Story](https://github.com/Brondchux/trackcalls#user-story)
+2. [Acceptance Criteria](https://github.com/Brondchux/trackcalls#acceptance-criteria)
+3. [Tech Stack](https://github.com/Brondchux/trackcalls#tech-stack)
+4. [Post MVP Enhancements](https://github.com/Brondchux/trackcalls#post-mvp-enhancements)
+5. [Useful Links](https://github.com/Brondchux/trackcalls#useful-links)
+6. [Collaborators](https://github.com/Brondchux/trackcalls#collaborators)
+7. [Credits](https://github.com/Brondchux/trackcalls#credits)
+8. [License](https://github.com/Brondchux/trackcalls#license)
 
 ---
 
@@ -49,7 +46,7 @@ Solve or identify security risks, scalability considerations, and edge cases in 
 ## Useful Links
 
 1. 🗂 View the repository on [Github](https://github.com/Brondchux/trackcalls)
-2. 🌍 This app is deployed with [Vercel](https://vercel.app/)
+2. 🌍 This app is deployed with [Vercel](https://trackcalls.vercel.app/)
 
 ---
 
@@ -84,8 +81,17 @@ I choose the stack below because the needs of the project is minimal and in it's
 8. We could switch from vanilla CSS to bootstrap to save us some time writing our rules
 9. Come up with a much better name that anounces what our SaaS has to offer
 10. Add test coverage to aid CI/CD automation
-11. Complete the feature to allow users add "optional" parameters when building their API calls
-12. Implement many other features that will come up when other collaborators come in
+11. Add a loading spinner while user awaits response
+12. Complete the feature to allow users add "optional" parameters when building their API calls
+13. Implement many other features that will come up when other collaborators come in
+
+---
+
+## Collaborators
+
+Gospel Chukwu [@brondchux](https://github.com/brondchux)
+
+Want to contribute? ping me brondchux@gmail.com
 
 ---
 
@@ -96,12 +102,6 @@ I choose the stack below because the needs of the project is minimal and in it's
 [Alpha Vantage](https://www.alphavantage.co/documentation/) for making this api available with good documentation.
 
 ---
-
-## Collaborators
-
-Gospel Chukwu [@brondchux](https://github.com/brondchux)
-
-Want to contribute? ping me brondchux@gmail.com
 
 ## License
 
