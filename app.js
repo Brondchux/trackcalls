@@ -1,61 +1,26 @@
 import demoKey from "./demoKey.js";
-const HOST = `https://www.alphavantage.co`;
-const KEY = demoKey;
+import functions from "./utils/functions.js";
+import constants from "./utils/constants.js";
 
-const fxnTypeEl = document.querySelector("#functions");
-const fmCurrencyEl = document.querySelector("#fm-currency");
-const toCurrencyEl = document.querySelector("#to-currency");
+const functionsEl = document.querySelector("#functions");
 const codeEl = document.querySelector("code");
 const dynamicEl = document.querySelector("#dynamic");
 const sendBtn = document.querySelector("#send-btn");
-const markets = ["USD", "NGN", "JPY", "CNY"];
-const currencies = ["BTC", "USD", "NGN", "JPY", "CNY"];
-const symbols = ["BTC", "ETH"];
-const intervals = ["1min", "5min", "15min", "30min", "60min"];
-const outputsizes = ["compact", "full"];
-const datatypes = ["json", "csv"];
-
-const functions = {
-	CURRENCY_EXCHANGE_RATE: {
-		required: [
-			{ param: "from_currency", values: currencies },
-			{ param: "to_currency", values: currencies },
-		],
-	},
-	CRYPTO_INTRADAY: {
-		required: [
-			{ param: "symbol", values: symbols },
-			{ param: "market", values: markets },
-			{ param: "interval", values: intervals },
-		],
-		optional: [
-			{ param: "outputsize", values: outputsizes },
-			{ param: "datatype", values: datatypes },
-		],
-	},
-	DIGITAL_CURRENCY_DAILY: {
-		required: [
-			{ param: "symbol", values: symbols },
-			{ param: "market", values: markets },
-		],
-	},
-	DIGITAL_CURRENCY_WEEKLY: {
-		required: [
-			{ param: "symbol", values: symbols },
-			{ param: "market", values: markets },
-		],
-	},
-	DIGITAL_CURRENCY_MONTHLY: {
-		required: [
-			{ param: "symbol", values: symbols },
-			{ param: "market", values: markets },
-		],
-	},
-};
 
 const dynamicFields = () => {
-	const fxnTypeInput = fxnTypeEl.value;
-	const { required } = functions[fxnTypeInput];
+	const functionsValue = functionsEl.value;
+	if (functionsValue === constants.SELECT) return;
+	// display button
+	sendBtn.parentElement.classList.remove("hide");
+
+	// process manual query
+	if (functionsValue === constants.OTHERS) {
+		const manualEl = document.querySelector("#manual");
+		return manualEl.classList.remove("hide");
+	}
+
+	// process dynamic query
+	const { required } = functions[functionsValue];
 	if (!required && !required.lengtn) return;
 	dynamicEl.innerHTML = "";
 
@@ -86,16 +51,26 @@ const dynamicFields = () => {
 
 const sendRequest = async (e) => {
 	e.preventDefault();
-	const fxnTypeInput = fxnTypeEl.value;
-	const { required } = functions[fxnTypeInput];
-	if (!required && !required.lengtn) return;
-	let queryString = `function=${fxnTypeInput}`;
+	const functionsValue = functionsEl.value;
+	let queryString = ``;
 
-	// extract values with loop
-	required.forEach((field) => {
-		const fieldInput = document.querySelector(`#${field.param}`).value;
-		queryString += `&${field.param}=${fieldInput}`;
-	});
+	// manual query
+	if (functionsValue === constants.OTHERS) {
+		const othersEl = document.querySelector("#others");
+		const othersInput = othersEl.value;
+		queryString += othersInput;
+	}
+	// dynamic query
+	else {
+		const { required } = functions[functionsValue];
+		if (!required && !required.lengtn) return;
+		queryString = `function=${functionsValue}`;
+		// extract values using loop
+		required.forEach((field) => {
+			const fieldInput = document.querySelector(`#${field.param}`).value;
+			queryString += `&${field.param}=${fieldInput}`;
+		});
+	}
 
 	console.log(queryString);
 	const res = await urlBuilder(queryString);
@@ -103,7 +78,7 @@ const sendRequest = async (e) => {
 };
 
 const urlBuilder = async (queryString) => {
-	const url = `${HOST}/query?${queryString}&apikey=${KEY}`;
+	const url = `${constants.BASEURL}/query?${queryString}&apikey=${demoKey}`;
 	console.log(url);
 	return await apiCall(url);
 };
@@ -125,4 +100,4 @@ const displayResponse = async (response) => {
 };
 
 sendBtn.addEventListener("click", sendRequest);
-fxnTypeEl.addEventListener("change", dynamicFields);
+functionsEl.addEventListener("change", dynamicFields);

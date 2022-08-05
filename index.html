@@ -23,6 +23,7 @@
 					<div>
 						<label for="functions">Select function type:</label>
 						<select class="form-control" id="functions">
+							<option value="select" selected>-select-</option>
 							<option value="CURRENCY_EXCHANGE_RATE">
 								CURRENCY_EXCHANGE_RATE
 							</option>
@@ -36,25 +37,20 @@
 							<option value="DIGITAL_CURRENCY_MONTHLY">
 								DIGITAL_CURRENCY_MONTHLY
 							</option>
+							<option value="OTHERS">OTHERS</option>
 						</select>
 					</div>
-					<div id="dynamic">
-						<div>
-							<label for="fm-currency"></label>
-							<select class="form-control" id="fm-currency">
-								<option value="BTC">BTC</option>
-							</select>
-						</div>
-						<div>
-							<label for="to-currency"></label>
-							<select class="form-control" id="to-currency">
-								<option value="USD">USD</option>
-								<option value="NGN">NGN</option>
-								<option value="CNY">CNY</option>
-							</select>
-						</div>
+					<div id="manual" class="hide">
+						<label for="others">Enter your query:</label>
+						<input
+							type="text"
+							class="form-control"
+							id="others"
+							placeholder="function=XXX_XXXX_XXXXX&param1=val1&...paramN=valN"
+						/>
 					</div>
-					<div>
+					<div id="dynamic"></div>
+					<div class="hideX">
 						<input type="submit" class="btn" id="send-btn" value="Send" />
 					</div>
 				</form>

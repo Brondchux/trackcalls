@@ -10,10 +10,18 @@ header {
 main {
 	min-height: 80vh;
 }
+.hide {
+	display: none !important;
+}
+.show {
+	display: block !important;
+}
 code {
 	margin: 2rem auto;
 	background-color: #ccc;
 	min-height: 300px;
+	max-height: 600px;
+	overflow-y: scroll;
 	border: 1px solid #999;
 	border-radius: 10px;
 	padding: 1.5rem;
