@@ -14,7 +14,7 @@ Build and make your API calls to alphavantage cryptocurrency endpoints using our
 4. [Tech Stack](https://github.com/Brondchux/trackcalls#tech-stack)
 5. [Post MVP Enhancements](https://github.com/Brondchux/trackcalls#post-mvp-enhancements)
 6. [Useful Links](https://github.com/Brondchux/trackcalls#useful-links)
-7. [Contributors](https://github.com/Brondchux/trackcalls#contributors)
+7. [Collaborators](https://github.com/Brondchux/trackcalls#collaborators)
 8. [Credits](https://github.com/Brondchux/trackcalls#credits)
 9. [License](https://github.com/Brondchux/trackcalls#license)
 
@@ -43,6 +43,13 @@ There is no limit to the tools or dependencies, i.e, use all of the resources yo
 Assume your solution is for production code following SOLID principles.
 Solve or identify security risks, scalability considerations, and edge cases in your solution.
 ```
+
+---
+
+## Useful Links
+
+1. 🗂 View the repository on [Github](https://github.com/Brondchux/trackcalls)
+2. 🌍 This app is deployed with [Vercel](https://vercel.app/)
 
 ---
 
