@@ -21,24 +21,38 @@
 			<section class="form-area">
 				<form>
 					<div>
-						<label for="function"></label>
-						<select class="form-control" id="function">
+						<label for="functions"></label>
+						<select class="form-control" id="functions">
 							<option value="CURRENCY_EXCHANGE_RATE">
 								CURRENCY_EXCHANGE_RATE
 							</option>
+							<option value="CRYPTO_INTRADAY">CRYPTO_INTRADAY</option>
+							<option value="DIGITAL_CURRENCY_DAILY">
+								DIGITAL_CURRENCY_DAILY
+							</option>
+							<option value="DIGITAL_CURRENCY_WEEKLY">
+								DIGITAL_CURRENCY_WEEKLY
+							</option>
+							<option value="DIGITAL_CURRENCY_MONTHLY">
+								DIGITAL_CURRENCY_MONTHLY
+							</option>
 						</select>
 					</div>
-					<div>
-						<label for="fm-currency"></label>
-						<select class="form-control" id="fm-currency">
-							<option value="BTC">BTC</option>
-						</select>
-					</div>
-					<div>
-						<label for="to-currency"></label>
-						<select class="form-control" id="to-currency">
-							<option value="USD">USD</option>
-						</select>
+					<div id="dynamic">
+						<div>
+							<label for="fm-currency"></label>
+							<select class="form-control" id="fm-currency">
+								<option value="BTC">BTC</option>
+							</select>
+						</div>
+						<div>
+							<label for="to-currency"></label>
+							<select class="form-control" id="to-currency">
+								<option value="USD">USD</option>
+								<option value="NGN">NGN</option>
+								<option value="CNY">CNY</option>
+							</select>
+						</div>
 					</div>
 					<div>
 						<input type="submit" class="btn" id="send-btn" value="Send" />

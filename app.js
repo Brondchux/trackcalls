@@ -2,11 +2,86 @@ import demoKey from "./demoKey.js";
 const HOST = `https://www.alphavantage.co`;
 const KEY = demoKey;
 
-const fxnTypeEl = document.querySelector("#function");
+const fxnTypeEl = document.querySelector("#functions");
 const fmCurrencyEl = document.querySelector("#fm-currency");
 const toCurrencyEl = document.querySelector("#to-currency");
 const codeEl = document.querySelector("code");
+const dynamicEl = document.querySelector("#dynamic");
 const sendBtn = document.querySelector("#send-btn");
+const markets = ["USD", "NGN", "JPY", "CNY"];
+const currencies = ["BTC", "USD", "NGN", "JPY", "CNY"];
+const symbols = ["BTC", "ETH"];
+const intervals = ["1min", "5min", "15min", "30min", "60min"];
+const outputsizes = ["compact", "full"];
+const datatypes = ["json", "csv"];
+
+const functions = {
+	CURRENCY_EXCHANGE_RATE: {
+		required: [
+			{ param: "from_currency", values: currencies },
+			{ param: "to_currency", values: currencies },
+		],
+	},
+	CRYPTO_INTRADAY: {
+		required: [
+			{ param: "symbol", values: symbols },
+			{ param: "market", values: markets },
+			{ param: "interval", values: intervals },
+		],
+		optional: [
+			{ param: "outputsize", values: outputsizes },
+			{ param: "datatype", values: datatypes },
+		],
+	},
+	DIGITAL_CURRENCY_DAILY: {
+		required: [
+			{ param: "symbol", values: symbols },
+			{ param: "market", values: markets },
+		],
+	},
+	DIGITAL_CURRENCY_WEEKLY: {
+		required: [
+			{ param: "symbol", values: symbols },
+			{ param: "market", values: markets },
+		],
+	},
+	DIGITAL_CURRENCY_MONTHLY: {
+		required: [
+			{ param: "symbol", values: symbols },
+			{ param: "market", values: markets },
+		],
+	},
+};
+
+const dynamicFields = () => {
+	const fxnTypeInput = fxnTypeEl.value;
+	const { required } = functions[fxnTypeInput];
+	if (!required && !required.lengtn) return;
+	dynamicEl.innerHTML = "";
+
+	// create the required fields
+	required.forEach((field) => {
+		const divEl = document.createElement("div");
+		const labelEl = document.createElement("label");
+		const selectEl = document.createElement("select");
+
+		labelEl.setAttribute("for", field.param);
+		selectEl.setAttribute("class", "form-control");
+		selectEl.setAttribute("id", field.param);
+
+		// loop to create & insert options
+		field.values.map((value) => {
+			const option = document.createElement("option");
+			option.setAttribute("value", value);
+			option.innerText = value;
+			selectEl.append(option);
+		});
+
+		divEl.append(labelEl);
+		divEl.append(selectEl);
+		dynamicEl.append(divEl);
+	});
+};
 
 const sendRequest = async (e) => {
 	e.preventDefault();
@@ -15,15 +90,7 @@ const sendRequest = async (e) => {
 	const toCurrencyInput = toCurrencyEl.value;
 	const queryString = `function=${fxnTypeInput}&from_currency=${fmCurrencyInput}&to_currency=${toCurrencyInput}`;
 	const res = await urlBuilder(queryString);
-	console.log(res);
 	return displayResponse(res);
-};
-
-const displayResponse = async (response) => {
-	codeEl.innerHTML = "";
-	const preEl = document.createElement("pre");
-	preEl.textContent = `${JSON.stringify(response, null, 3)}`;
-	codeEl.append(preEl);
 };
 
 const urlBuilder = async (queryString) => {
@@ -41,4 +108,12 @@ const apiCall = async (url) => {
 		.catch((e) => new Error("You got this error: ", e));
 };
 
+const displayResponse = async (response) => {
+	codeEl.innerHTML = "";
+	const preEl = document.createElement("pre");
+	preEl.textContent = `${JSON.stringify(response, null, 3)}`;
+	codeEl.append(preEl);
+};
+
 sendBtn.addEventListener("click", sendRequest);
+fxnTypeEl.addEventListener("change", dynamicFields);

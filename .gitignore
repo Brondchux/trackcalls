@@ -3,3 +3,6 @@ demoKey.js
 
 # For developement server configuration, useless in production
 .vscode
+
+# Misc
+app2.js

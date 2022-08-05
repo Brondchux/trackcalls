@@ -11,6 +11,7 @@ main {
 	min-height: 80vh;
 }
 code {
+	margin: 2rem auto;
 	background-color: #ccc;
 	min-height: 300px;
 	border: 1px solid #999;
