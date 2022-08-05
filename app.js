@@ -40,7 +40,7 @@ const generateFields = () => {
 
 	// process dynamic query
 	const { required } = functions[functionsValue];
-	if (!required || !required.lengtn) return;
+	if (!required || !required.length) return;
 
 	// create the required fields
 	required.forEach((field) => {
@@ -75,7 +75,7 @@ const sendRequest = async (e) => {
 		const othersEl = document.querySelector("#others");
 		const alertEl = document.querySelector(".alert");
 		const othersInput = othersEl.value;
-		if (!othersInput.lengtn) {
+		if (!othersInput.length) {
 			return (alertEl.textContent = "Query string is required!");
 		}
 		queryString += othersInput;
@@ -83,7 +83,7 @@ const sendRequest = async (e) => {
 	// dynamic query
 	else {
 		const { required } = functions[functionsValue];
-		if (!required && !required.lengtn) return;
+		if (!required && !required.length) return;
 		queryString = `function=${functionsValue}`;
 		// extract values using loop
 		required.forEach((field) => {

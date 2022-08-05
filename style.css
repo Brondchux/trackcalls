@@ -1,14 +1,66 @@
-body {
+* {
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
+}
+body {
 	font-size: 16px;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 header {
-	min-height: 12vh;
+	min-height: 10vh;
 	text-align: center;
+	background-color: #000000;
+	color: #8ad760;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2em;
 }
 main {
-	min-height: 80vh;
+	min-height: 85vh;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+a,
+a:hover {
+	text-decoration: none;
+	color: #8ad760;
+}
+.banner {
+	background-color: #8ad760;
+	min-height: 20vh;
+	display: flex;
+	align-items: center;
+	padding: 1rem;
+}
+.banner h2 {
+	font-size: 3rem;
+}
+.banner p {
+	font-size: 1.5rem;
+	margin: 1rem auto;
+}
+label {
+	font-size: 1.5rem;
+	display: block;
+	margin: 1rem auto;
+	color: #02753b;
+}
+.form-control {
+	font-size: 1.5rem;
+	width: 100%;
+	border-radius: 5px;
+	padding: 0.5rem;
+}
+.btn {
+	font-size: 2rem;
+	border-radius: 5px;
+	padding: 0.5rem 3rem;
+	margin: 2rem auto;
+	background-color: #000000;
+	color: #8ad760;
+	cursor: pointer;
 }
 .hide {
 	display: none !important;
@@ -18,16 +70,24 @@ main {
 }
 code {
 	margin: 2rem auto;
-	background-color: #ccc;
-	min-height: 300px;
-	max-height: 600px;
+	background-color: #eee;
+	min-height: 30vh;
+	max-height: 30vh;
 	overflow-y: scroll;
 	border: 1px solid #999;
 	border-radius: 10px;
 	padding: 1.5rem;
 	display: block;
+	color: #02753b;
 }
 footer {
-	min-height: 8vh;
+	min-height: 5vh;
 	text-align: center;
+	background-color: #000000;
+	color: #fff;
+	display: flex;
+	align-items: end;
+	justify-content: center;
+	padding: 2rem;
+	border-top: 10px solid #8ad760;
 }
